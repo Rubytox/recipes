@@ -7,6 +7,8 @@ remote_theme: daattali/beautiful-jekyll@6.0.1
 ### the initial set up you won't need to come back to this file often.
 ###########################################################
 
+locale: fr
+
 ############################
 # --- Required options --- #
 ############################
