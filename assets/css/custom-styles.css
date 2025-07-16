@@ -1,0 +1,17 @@
+#recipe-summary {
+  background: #f9f9f9;
+}
+#recipe-summary h2, #recipe-summary h3 {
+  margin-top: 1rem;
+}
+#recipe-summary button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+}
+#recipe-summary button:hover {
+  background: #0056b3;
+}
