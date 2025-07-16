@@ -1,0 +1,14 @@
+---
+layout: page
+title: "Recipes"
+permalink: /recipes/
+---
+
+Here is the list of my recipes:
+<ul>
+    {% for post in site.posts %}
+        {% if post.layout == 'recipe' %}
+            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endif %}
+    {% endfor %}
+</ul>
