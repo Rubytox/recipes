@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    {% if page.cover %}
+      <img src="{{ page.cover }}" alt="Cover image for {{ page.title }}" style="width: 100%; max-height: 400px; object-fit: cover; margin-top: 1rem;">
+    {% endif %}
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <hr>
+
+  <div id="recipe-summary" style="border: 1px solid #ccc; padding: 1rem; border-radius: 10px; margin-top: 2rem;">
+    <h2>Summary</h2>
+    <div>
+      <h3>🧂 Ingredients</h3>
+      <ul id="ingredients">
+        {% for item in page.ingredients %}
+          <li data-metric="{{ item.metric }}" data-freedom="{{ item.freedom }}">{{ item.metric }}</li>
+        {% endfor %}
+      </ul>
+
+      <h3>👨‍🍳 Steps</h3>
+      <ol>
+        {% for step in page.steps %}
+          <li>{{ step }}</li>
+        {% endfor %}
+      </ol>
+
+      <button onclick="convertUnits()">Switch to Freedom Units 🇺🇸</button>
+    </div>
+  </div>
+</article>
+
+<script>
+  let usingMetric = true;
+
+  function convertUnits() {
+    const ingredients = document.querySelectorAll('#ingredients li');
+    ingredients.forEach(li => {
+      const metric = li.getAttribute('data-metric');
+      const freedom = li.getAttribute('data-freedom');
+      li.innerText = usingMetric ? freedom : metric;
+    });
+    usingMetric = !usingMetric;
+  }
+</script>
